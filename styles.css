@@ -48,3 +48,15 @@ a:hover {
     margin-top: 3px;
     padding: 3px;
 }
+
+.about {
+    position: absolute;
+    margin-top: 100px;
+    padding: 3px;
+}
+
+.contact {
+    position: absolute;
+    margin-top: 100px;
+    padding: 3px;
+}
