@@ -8,7 +8,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     button.addEventListener('click', () => {
         let sliceId = `slice-${sliceIndex + 1}`;
 
-        if (sliceIndex > 5) {
+        if (sliceIndex > 4) {
+            let elementsToRemove = document.querySelectorAll(`[id=${sliceId}]`);
+            elementsToRemove.forEach((element) => {
+                element.remove();
+            });
+
             let message = document.createElement('p');
             message.textContent = "Sorry, we are all out of pizza!";
             message.classList.add('svg');
