@@ -1,6 +1,8 @@
+//I have no idea how it works, I used ChatGPT for it :)
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let button = document.getElementById('pizza-button');
-    let slices = document.querySelectorAll('[id^=slice]');
+    const slices = document.querySelectorAll('[id^=slice]');
     let sliceIndex = 0;
 
     button.addEventListener('click', () => {

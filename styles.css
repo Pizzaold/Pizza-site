@@ -1,3 +1,4 @@
+/* Main text stile for the webpage */
 body {
     background-color: #ffffff;
     font-family: "Franklin Gothic Medium", sans-serif;
@@ -5,20 +6,24 @@ body {
     color: #000000;
 }
 
+/* Paragrav font-size */
 p {
     font-size: 30px;
     color: #000000;
 }
 
+/* Link style when not hovert over */
 a {
     text-decoration: none;
     color: #000000;
 }
 
+/* Link style when hovert over */
 a:hover {
     text-decoration: underline;
 }
 
+/* .list is for sitebar navigator div */
 .list {
     position: fixed;
     top: 0;
@@ -26,6 +31,7 @@ a:hover {
     height: 10%;
 }
 
+/* .title is for the big text in index.html */
 .title {
     width: 100%;
     font-size: 40px;
@@ -39,6 +45,7 @@ a:hover {
     position: relative;
 }
 
+/* .pizza is for the pizza image and pizza-button div */
 .pizza {
     position: absolute;
     left: 50%;
@@ -48,18 +55,21 @@ a:hover {
     padding: 3px;
 }
 
+/* .about is for the about.html main text div */
 .about {
     position: absolute;
     margin-top: 100px;
     padding: 3px;
 }
 
+/* .contact is for the contact.html main text div*/
 .contact {
     position: absolute;
     margin-top: 100px;
     padding: 3px;
 }
 
+/* .svg is for the pizza image */
 .svg {
     position: absolute;
     left: 50%;
