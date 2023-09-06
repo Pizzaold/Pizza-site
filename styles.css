@@ -1,21 +1,21 @@
 /* Main text stile for the webpage */
 body {
-    background-color: #ffffff;
+    background-color: #121212;
     font-family: "Franklin Gothic Medium", sans-serif;
     font-size: 1.25rem;
-    color: #000000;
+    color: #bdbdbd;
 }
 
 /* Paragrav font-size */
 p {
     font-size: 1.875rem;
-    color: #000000;
+    line-height: 3rem;
 }
 
 /* Link style when not hovert over */
 a {
     text-decoration: none;
-    color: #000000;
+    color: #bdbdbd;
 }
 
 /* Link style when hovert over */
@@ -23,12 +23,27 @@ a:hover {
     text-decoration: underline;
 }
 
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-left: 0%;
+}
+
+li {
+    display: block;
+    list-style-type: none;
+}
+
 /* .list is for sitebar navigator div */
 .list {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 10%;
+    width: 100%;
     z-index: 2;
 }
 
@@ -77,4 +92,25 @@ a:hover {
     transform: translate(-50%);
     margin-top: 2.5rem;
     padding: 0.188rem;
+}
+
+.button {
+    background-color: blue;
+    color: white;
+    font-size: 4rem;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    border-width: 0px;
+    border: solid blue;
+}
+
+.button:not(:disabled):hover {
+    background-color: #121212;
+    color: blue;
+    border: solid blue;
+}
+
+.button[disabled]{
+    opacity: 0.5;
 }

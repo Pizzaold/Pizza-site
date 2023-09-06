@@ -15,9 +15,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             });
 
             let message = document.createElement('p');
+            var div = document.getElementsByClassName('pizza')[0];
             message.textContent = "Sorry, we are all out of pizza!";
-            message.classList.add('svg');
-            document.body.appendChild(message);
+            div.appendChild(message);
             button.disabled = true; // Disable the button to prevent further clicks
         } else {
             // Remove elements with the current sliceId
