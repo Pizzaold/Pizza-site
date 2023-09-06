@@ -1,62 +1,80 @@
+/* Main text stile for the webpage */
 body {
     background-color: #ffffff;
     font-family: "Franklin Gothic Medium", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #000000;
 }
 
+/* Paragrav font-size */
 p {
-    font-size: 30px;
+    font-size: 1.875rem;
     color: #000000;
 }
 
+/* Link style when not hovert over */
 a {
     text-decoration: none;
     color: #000000;
 }
 
+/* Link style when hovert over */
 a:hover {
     text-decoration: underline;
 }
 
+/* .list is for sitebar navigator div */
 .list {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     height: 10%;
+    z-index: 2;
 }
 
+/* .title is for the big text in index.html */
 .title {
     width: 100%;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
     padding: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 100px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    margin-top: 6.25rem;
     text-align: center;
     position: relative;
 }
 
+/* .pizza is for the pizza image and pizza-button div */
 .pizza {
     position: absolute;
     left: 50%;
     text-align: center;
     transform: translate(-50%);
-    margin-top: 3px;
-    padding: 3px;
+    margin-top: 0.188rem;
+    padding: 0.188rem;
 }
 
+/* .about is for the about.html main text div */
 .about {
     position: absolute;
-    margin-top: 100px;
-    padding: 3px;
+    margin-top: 6.25rem;
+    padding: 0.188rem;
 }
 
+/* .contact is for the contact.html main text div*/
 .contact {
     position: absolute;
-    margin-top: 100px;
-    padding: 3px;
+    margin-top: 6.25rem;
+    padding: 0.188rem;
+}
+
+/* .svg is for the pizza image */
+.svg {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 2.5rem;
+    padding: 0.188rem;
 }
