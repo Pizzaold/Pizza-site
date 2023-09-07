@@ -1,9 +1,15 @@
 /* Main text stile for the webpage */
+
+:root {
+    --main-color: #FBFFF1;
+    --secondary-color: #121212;
+}
+
 body {
-    background-color: #121212;
+    background-color: var(--secondary-color);
     font-family: "Franklin Gothic Medium", sans-serif;
     font-size: 1.25rem;
-    color: #eeeeee;
+    color: var(--main-color);
 }
 
 /* Paragrav font-size */
@@ -15,7 +21,7 @@ p {
 /* Link style when not hovert over */
 a {
     text-decoration: none;
-    color: #eeeeee;
+    color: var(--main-color);
 }
 
 /* Link style when hovert over */
@@ -95,20 +101,20 @@ li {
 }
 
 .button {
-    background-color: #eeeeee;
-    color: black;
+    background-color: #090C9B;
+    color: var(--main-color);
     font-size: 4rem;
     position: relative;
     z-index: 2;
     border-radius: 20px;
     border-width: 0px;
-    border: solid #eeeeee;
+    border: solid #090C9B;
 }
 
 .button:not(:disabled):hover {
-    background-color: #121212;
-    color: #eeeeee;
-    border: solid #eeeeee;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    border: solid #090C9B;
 }
 
 .button[disabled]{
