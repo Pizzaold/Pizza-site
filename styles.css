@@ -35,7 +35,7 @@ ul {
     align-items: center;
     width: 100%;
     padding-top: 0.5rem;
-    padding-left: 0%;
+    padding-left: 0;
 }
 
 li {
@@ -107,7 +107,7 @@ li {
     position: relative;
     z-index: 2;
     border-radius: 20px;
-    border-width: 0px;
+    border-width: 0;
     border: solid #090C9B;
 }
 
