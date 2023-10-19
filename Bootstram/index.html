@@ -18,16 +18,18 @@
 </head>
 
 <body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-        <div class="container px-0">
-            <div class="row">
-                <a class="navbar-brand" href="#"><i class="fa-solid fa-pizza-slice fa-lg"></i></a>
-            </div>
-            <div class="row">
-                <ul class="navbar-nav">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-pizza-slice fa-lg"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="btn btn-primary mx-1" href="#">Avaleht</a>
+                        <a class="btn btn-primary mx-1" href="#Avaleht">Avaleht</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary mx-1" href="#">Minu kohta</a>
@@ -42,8 +44,22 @@
             </div>
         </div>
     </nav>
-    <section class="con">
-
+    <!-- Showcase -->
+    <section id="Avaleht" class="container-fluid bg-primary">
+        <div class="row justify-content-center">
+            <div class="circle my-5">
+                <div class="logo"></div>
+                <div class="text">
+                    <p>Tarkvaraarendus õpilane Eestist</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col align-self-center text-center">
+                <h1 class="display-4 text-dark">Jürmo Mihhailov</h1>
+                <a href="#" class="btn btn-dark btn-lg mb-4">Minu kohta</a>
+            </div>
+        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -51,6 +67,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+    <script src="Scripts/circle_text.js"></script>
 </body>
 
 </html>
