@@ -32,7 +32,7 @@
                         <a class="btn btn-primary mx-1" href="#Avaleht">Avaleht</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary mx-1" href="#">Minu kohta</a>
+                        <a class="btn btn-primary mx-1" href="#About">Minu kohta</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary mx-1" href="#">Projektid</a>
@@ -61,6 +61,72 @@
             </div>
         </div>
     </section>
+    <!-- About -->
+    <section id="About" class="container-fluid bg-dark">
+        <div class="row">
+            <div class="align-self-center col-1 p-0">
+                <ul class="list-group my-2" id="buttonList">
+                    <li class="list-group-item"><button class="active" onclick="showContent(0)">Kes ma olen?</button></li>
+                    <li class="list-group-item"><button onclick="showContent(1)">Hobid</button></li>
+                    <li class="list-group-item"><button onclick="showContent(2)">To be continued</button></li>
+                </ul>
+            </div>
+            <div class="col-10 bg-light mt-2 mr-2 mb-2" id="contentContainer">
+                <!-- Content for each button goes here -->
+                <div class="single-post-content-wrapper text-dark p-3" id="content0">
+                    <h3>Title</h3>
+                    <div class="image-wrapper float-right align-self-end p-3">
+                        <img src="https://picsum.photos/200/200" alt="img">
+                    </div>
+                    <h5>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar elementum tortor.
+                        Phasellus commodo sit amet lectus at volutpat. Nullam quis fringilla lacus. Phasellus finibus
+                        tincidunt sapien, eget finibus ex dictum in. Ut gravida nisi ut dictum vehicula. In molestie leo non
+                        massa porta volutpat. Pellentesque dictum mattis ante vitae scelerisque. Nulla vel facilisis leo.
+                        Quisque sed aliquet ante. Praesent venenatis blandit venenatis. Pellentesque volutpat ex quis
+                        viverra elementum. In sodales, nisi sit amet fermentum lacinia, elit erat accumsan nulla, vel
+                        pharetra ex tortor ut arcu. Morbi tristique venenatis justo, eu dapibus enim interdum at. Fusce
+                        volutpat nulla non condimentum iaculis. Praesent at ligula faucibus, dapibus ex sit amet, convallis
+                        velit. Curabitur pharetra elit et ante consectetur varius.
+                    </h5>
+                </div>
+                <div class="single-post-content-wrapper text-dark p-3" id="content1">
+                    <h3>Title</h3>
+                    <div class="image-wrapper float-right align-self-end p-3">
+                        <img src="https://picsum.photos/201/201" alt="img">
+                    </div>
+                    <h5>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar elementum tortor.
+                        Phasellus commodo sit amet lectus at volutpat. Nullam quis fringilla lacus. Phasellus finibus
+                        tincidunt sapien, eget finibus ex dictum in. Ut gravida nisi ut dictum vehicula. In molestie leo non
+                        massa porta volutpat. Pellentesque dictum mattis ante vitae scelerisque. Nulla vel facilisis leo.
+                        Quisque sed aliquet ante. Praesent venenatis blandit venenatis. Pellentesque volutpat ex quis
+                        viverra elementum. In sodales, nisi sit amet fermentum lacinia, elit erat accumsan nulla, vel
+                        pharetra ex tortor ut arcu. Morbi tristique venenatis justo, eu dapibus enim interdum at. Fusce
+                        volutpat nulla non condimentum iaculis. Praesent at ligula faucibus, dapibus ex sit amet, convallis
+                        velit. Curabitur pharetra elit et ante consectetur varius.
+                    </h5>
+                </div>
+                <div class="single-post-content-wrapper text-dark p-3" id="content2">
+                    <h3>Title</h3>
+                    <div class="image-wrapper float-right align-self-end p-3">
+                        <img src="https://picsum.photos/202/202" alt="img">
+                    </div>
+                    <h5>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar elementum tortor.
+                        Phasellus commodo sit amet lectus at volutpat. Nullam quis fringilla lacus. Phasellus finibus
+                        tincidunt sapien, eget finibus ex dictum in. Ut gravida nisi ut dictum vehicula. In molestie leo non
+                        massa porta volutpat. Pellentesque dictum mattis ante vitae scelerisque. Nulla vel facilisis leo.
+                        Quisque sed aliquet ante. Praesent venenatis blandit venenatis. Pellentesque volutpat ex quis
+                        viverra elementum. In sodales, nisi sit amet fermentum lacinia, elit erat accumsan nulla, vel
+                        pharetra ex tortor ut arcu. Morbi tristique venenatis justo, eu dapibus enim interdum at. Fusce
+                        volutpat nulla non condimentum iaculis. Praesent at ligula faucibus, dapibus ex sit amet, convallis
+                        velit. Curabitur pharetra elit et ante consectetur varius.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </section>   
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -68,6 +134,7 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     <script src="Scripts/circle_text.js"></script>
+    <script src="Scripts/about_section.js"></script>
 </body>
 
 </html>
