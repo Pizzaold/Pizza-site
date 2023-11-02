@@ -133,6 +133,10 @@ body {
     transform-origin: 0 170px;
 }
 
+a, a:hover, a:focus, a:active {
+    color: var(--primary);
+}
+
 /* About */
 
 #about div div ul li {
