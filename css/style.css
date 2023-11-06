@@ -18,20 +18,25 @@ body {
     border-color: var(--primary);
 }
 
-.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
     color: var(--primary);
     background-color: var(--dark);
     border-color: var(--primary);
 }
 
-.btn-primary.focus, .btn-primary:focus {
+.btn-primary.focus,
+.btn-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(245, 157, 34, 0.5);
     background-color: var(--primary);
     border-color: var(--primary);
     color: var(--light);
 }
 
-.btn-primary:focus:hover, .btn-primary.focus:hover {
+.btn-primary:focus:hover,
+.btn-primary.focus:hover {
     box-shadow: 0 0 0 0.2rem rgba(245, 157, 34, 0.5);
     background-color: var(--primary);
     border-color: var(--primary);
@@ -44,20 +49,25 @@ body {
     border-color: var(--dark);
 }
 
-.btn-dark:hover, .btn-dark:not(:disabled):not(.disabled).active, .btn-dark:not(:disabled):not(.disabled):active, .show>.btn-dark.dropdown-toggle {
+.btn-dark:hover,
+.btn-dark:not(:disabled):not(.disabled).active,
+.btn-dark:not(:disabled):not(.disabled):active,
+.show>.btn-dark.dropdown-toggle {
     color: var(--dark);
     background-color: var(--primary);
     border-color: var(--dark);
 }
 
-.btn-dark.focus, .btn-dark:focus {
+.btn-dark.focus,
+.btn-dark:focus {
     box-shadow: 0 0 0 0.2rem rgba(37, 35, 35, 0.5);
     background-color: var(--dark);
     border-color: var(--dark);
     color: var(--light);
 }
 
-.btn-dark:focus:hover, .btn-dark.focus:hover {
+.btn-dark:focus:hover,
+.btn-dark.focus:hover {
     box-shadow: 0 0 0 0.2rem rgba(37, 35, 35, 0.5);
     background-color: var(--dark);
     border-color: var(--dark);
@@ -65,15 +75,15 @@ body {
 }
 
 .bg-primary {
-    background-color: var(--primary)!important;
+    background-color: var(--primary) !important;
 }
 
 .bg-dark {
-    background-color: var(--dark)!important;
+    background-color: var(--dark) !important;
 }
 
 .bg-light {
-    background-color: var(--light)!important;
+    background-color: var(--light) !important;
 }
 
 .navbar-dark {
@@ -81,19 +91,19 @@ body {
 }
 
 .text-primary {
-    color: var(--primary)!important;
+    color: var(--primary) !important;
 }
 
 .text-dark {
-    color: var(--dark)!important;
+    color: var(--dark) !important;
 }
 
 .text-light {
-    color: var(--light)!important;
+    color: var(--light) !important;
 }
 
 .border-dark {
-    border-color: var(--dark)!important;
+    border-color: var(--dark) !important;
 }
 
 .img-sm {
@@ -138,7 +148,10 @@ body {
     transform-origin: 0 170px;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     color: var(--primary);
 }
 
@@ -179,10 +192,11 @@ a, a:hover, a:focus, a:active {
 /* Projects */
 
 @media (max-width: 768px) {
-    .carousel-inner .carousel-item > div {
+    .carousel-inner .carousel-item>div {
         display: none;
     }
-    .carousel-inner .carousel-item > div:first-child {
+
+    .carousel-inner .carousel-item>div:first-child {
         display: block;
     }
 }
@@ -195,24 +209,25 @@ a, a:hover, a:focus, a:active {
 
 /* display 3 */
 @media (min-width: 768px) {
-    
+
     .carousel-inner .carousel-item-right.active,
     .carousel-inner .carousel-item-next {
-      transform: translateX(33.333%);
+        transform: translateX(33.333%);
     }
-    
-    .carousel-inner .carousel-item-left.active, 
+
+    .carousel-inner .carousel-item-left.active,
     .carousel-inner .carousel-item-prev {
-      transform: translateX(-33.333%);
+        transform: translateX(-33.333%);
     }
 }
 
 .carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{ 
-  transform: translateX(0);
+.carousel-inner .carousel-item-left {
+    transform: translateX(0);
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
     width: 30px;
     height: 30px;
     color: var(--light);
