@@ -16,5 +16,5 @@ jobs:
         path: "."
         remote_path: /home/ubuntu/Pizza-site
         remote_host: ${{ secrets.SSH_HOSTNAME }}
-        remote_user: ${{ secrets.SSH_USER }}
+        remote_user: ${{ secrets.SSH_USERNAME }}
         remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
