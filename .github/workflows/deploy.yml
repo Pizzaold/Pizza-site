@@ -1,20 +1,27 @@
 name: Deploy
+
 on:
   push:
-    branches:
-    - main
+    branches: [main]
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: rsync deployments
-      uses: burnett01/rsync-deployments@7.0.1
-      with:
-        switches: -avzr --delete
-        path: "."
-        remote_path: /home/ubuntu/Pizza-site
-        remote_host: ${{ secrets.SSH_HOSTNAME }}
-        remote_user: ${{ secrets.SSH_USERNAME }}
-        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to sandbox via rsync
+        run: |
+          rsync -avzr --delete --exclude node_modules --exclude '.git*' . ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }}:/home/ubuntu/Pizza-site
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_HOSTNAME: ${{ secrets.SSH_HOSTNAME }}
