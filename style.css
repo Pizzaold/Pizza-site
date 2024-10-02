@@ -50,3 +50,11 @@ body {
     color: #00ff00;
   }
   
+  a {
+    color: #00ff99;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #00ff99;  
+  }
