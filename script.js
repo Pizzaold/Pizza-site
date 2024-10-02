@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subcommand = commandParts.join(' ');
     switch (subcommand) {
       case 'about 1':
-        output.innerHTML += "This is my personal portfolio page.\nIt's made as a terminal simulation.\nI wanted to make something where the person doesn't just come and read, but has to interact with the page.\n Just a static pages with HTML, CSS, and JS.\n";
+        output.innerHTML += "This is my personal portfolio page.\nIt's made as a terminal simulation.\nI wanted to make something where the person doesn't just come and read, but has to interact with the page.\nJust a static pages with HTML, CSS, and JS.\n";
         break;
       case 'about 2':
         output.innerHTML += 'UniPal is my unfinished project written by me and two of my classmates.\n';
