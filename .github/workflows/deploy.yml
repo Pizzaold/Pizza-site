@@ -12,9 +12,9 @@ jobs:
     - name: rsync deployments
       uses: burnett01/rsync-deployments@7.0.1
       with:
-        switches: -avzr --delete
+        switches: -avzrO --delete
         path: "."
-        remote_path: /home/ubuntu/var/www/html
+        remote_path: /var/www/html
         remote_host: ${{ secrets.SSH_HOSTNAME }}
         remote_user: ${{ secrets.SSH_USERNAME }}
         remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
