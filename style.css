@@ -1,60 +1,91 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1e1e1e;
-    color: #00ff00;
-    font-family: 'Courier New', monospace;
-  }
-  
-  #terminal {
-    width: 80%;
-    max-width: 1000px;
-    height: 600px;
-    background-color: black;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    overflow: auto;
-  }
-  
-  #output {
-    white-space: pre-wrap;
-  }
-  
-  #input-line {
-    display: flex;
-    align-items: center;
-  }
-  
-  .prompt {
-    color: #00ff00;
-    margin-right: 5px;
-  }
-  
-  #command-input {
-    background: none;
-    border: none;
-    color: #00ff00;
-    outline: none;
-    flex: 1;
-    caret-color: #00ff00;
-    font-family: inherit;
-    font-size: inherit;
-  }
-  
-  #command-input::placeholder {
-    color: #00ff00;
-  }
-  
-  a {
-    color: #00ff99;
-    text-decoration: none;
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
 
-  a:hover {
-    color: #00ff99;  
-  }
+#terminal {
+  width: 80%;
+  max-width: 1000px;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#output {
+  flex-grow: 1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#input-line {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.prompt {
+  color: #00ff00;
+  margin-right: 5px;
+}
+
+#command-input {
+  background: none;
+  border: none;
+  color: #00ff00;
+  outline: none;
+  flex: 1;
+  caret-color: #00ff00;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#command-input::placeholder {
+  color: rgba(0, 255, 0, 0.5);
+}
+
+a {
+  color: #00ff99;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #66ffcc;
+  text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
