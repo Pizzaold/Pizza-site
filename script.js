@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   const mainCommands = {
     me: { description: 'Learn about me', usage: 'me [-a | --about] [-ac | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --intrestes]' },
+    work: { description: 'Learn about my work experience', usage: 'No arguments for this commant'},
     projects: { description: 'Learn about my projects', usage: 'projects [-l | --list] [-a <project_number>| --about <project_number>]' },
     help: { description: 'Show available commands', usage: 'help [command]' },
     clear: { description: 'Clear the terminal', usage: 'clear' }
   };
 
   const asciiArt = `<pre>   
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░         ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓██████████████▓▒░  ░▒▓████████▓▒░ ░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░   ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓██████▓▒░   ░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░        ░▒▓█▓▒░        ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░                
- ░▒▓█████████████▓▒░  ░▒▓████████▓▒░ ░▒▓████████▓▒░  ░▒▓██████▓▒░   ░▒▓██████▓▒░  ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░ ░▒▓████████▓▒░ ░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░        ░▒▓██████▓▒░  ░▒▓██████▓▒░ ░▒▓████████████▓▒░ ░▒▓████████▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░  ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░  ░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░               
+ ░▒▓███████████▓▒░ ░▒▓████████▓▒░░▒▓████████▓▒░ ░▒▓██████▓▒░  ░▒▓██████▓▒░ ░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░ 
                                                                                                                                
                                                                                                                                
  </pre>`;
@@ -141,6 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'me':
         handleMeCommand(args);
         break;
+      case 'work':
+        handleWorkCommand(args)
+        break
       default:
         printOutput(`'${cmd}' is not recognized as a valid command.\n`);
         break;
@@ -213,5 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function scrollToBottom() {
     terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function handleWorkCommand(args) {
+    let output = '';
+    output += ''
   }
 });

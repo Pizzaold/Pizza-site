@@ -2,12 +2,14 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1e1e1e;
   color: #00ff00;
   font-family: 'Courier New', monospace;
+  font-size: 16px;
 }
 
 #terminal {
@@ -18,9 +20,17 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1;
 }
 
 #content {
@@ -71,6 +81,11 @@ a {
 a:hover {
   color: #66ffcc;
   text-decoration: underline;
+}
+
+.simple-page {
+  margin-top: 20px;
+  color: #00ff00;
 }
 
 ::-webkit-scrollbar {
