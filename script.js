@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   "It's made as a terminal simulation.\n" +
                   "I wanted to make something where the person doesn't just come and read, but has to interact with the page.\n" +
                   "There is also a basic version if people really just wanna come and read about me.",
-      keywords: ["HTML", "CSS", "JS", "SOLO"]
+      keywords: ["HTML", "CSS", "JavaScript", "SOLO"]
     },
     2: {
       title: "UniPal",
