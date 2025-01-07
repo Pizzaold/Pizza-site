@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const mainCommands = {
-    me: { description: 'Learn about me', usage: 'me [-a | --about] [-ac | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --intrestes]' },
-    work: { description: 'Learn about my work experience', usage: 'No arguments for this commant'},
-    projects: { description: 'Learn about my projects', usage: 'projects [-l | --list] [-a <project_number>| --about <project_number>]' },
+    me: { description: 'Learn about me', usage: 'me [-a | --about] [-ad | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --interests]' },
+    work: { description: 'Learn about my work experience', usage: 'No arguments for this command'},
+    projects: { 
+      description: 'Learn about my projects', 
+      usage: 'projects [-l | --list] [-a <project_number> | --about <project_number>] [-k <keyword> | --keyword <keyword>]' 
+    },
     help: { description: 'Show available commands', usage: 'help [command]' },
     clear: { description: 'Clear the terminal', usage: 'clear' }
   };
@@ -167,32 +170,106 @@ document.addEventListener('DOMContentLoaded', () => {
     printOutput(helpText);
   }
 
+  const projectsDatabase = {
+    1: {
+      title: "Personal Portfolio",
+      description: "This is my personal portfolio page.\n" +
+                  "It's made as a terminal simulation.\n" +
+                  "I wanted to make something where the person doesn't just come and read, but has to interact with the page.\n" +
+                  "There is also a basic version if people really just wanna come and read about me.",
+      keywords: ["HTML", "CSS", "JS", "SOLO"]
+    },
+    2: {
+      title: "UniPal",
+      description: "UniPal is my unfinished project written by me and two of my classmates.\n" +
+                  "It was started in the spring of 2024 as a year-end project and then paused for the summer.\n" +
+                  "It is a web application that is inspired by epal.gg.\n" +
+                  "It is made using Vite, React Bootstrap, and Sequelize, written in TypeScript, and the database is in MySQL.\n" +
+                  "It can be found at <a href=\"https://unipal.jurmoharak.ee\" target=\"_blank\">unipal.jurmoharak.ee</a>.",
+      keywords: ["Vite", "React", "Bootstrap", "MVP", "Express", "TypeScript", "Sequelize", "MySQL"]
+    },
+    3: {
+      title: "HabitTracker",
+      description: "HabitTracker is my personal project that I made to track my own habits and tasks.\n" +
+                  "I made it at the end of november of 2024 and I am using it daily myself.\n" +
+                  "It was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, date is stored locally in the phone using async-storage and it's written in TypeScript.\n" +
+                  "The reason why I made it was because I wanted free habit tracker that has all the functionalities that I wanted to use.\n" +
+                  "<a href=\"https://github.com/Pizzaold/HabitTracker\" target=\"_blank\">https://github.com/Pizzaold/HabitTracker</a>",
+      keywords: ["Expo", "React", "Phone App", "TypeScript", "Open Source", "Async-storage"]
+    }
+  };
+  
+  function formatKeywords(keywords) {
+    return keywords.map(keyword => 
+      `<span class="keyword">${keyword}</span>`
+    ).join(' ');
+  }
+  
+  function searchProjectsByKeyword(keyword) {
+    const matchingProjects = [];
+    
+    for (const [id, project] of Object.entries(projectsDatabase)) {
+      if (project.keywords.some(k => k.toLowerCase() === keyword.toLowerCase())) {
+        matchingProjects.push({ id, ...project });
+      }
+    }
+    
+    return matchingProjects;
+  }
+  
   function handleProjectsCommand(args) {
     let output = '';
+    
     if (args.includes('-l') || args.includes('--list')) {
-      output += "1. Personal Portfolio\n2. UniPal\n3. HabitTracker";
-    } else if (args.includes('-a') || args.includes('--about')) {
+      Object.entries(projectsDatabase).forEach(([id, project]) => {
+        output += `${id}. ${project.title}\n`;
+      });
+    } 
+    else if (args.includes('-k') || args.includes('--keyword')) {
+      const keywordIndex = args.findIndex(arg => arg === '-k' || arg === '--keyword');
+      const keyword = args[keywordIndex + 1];
+      
+      if (!keyword) {
+        output += "Please provide a keyword to search for.\n";
+        output += "Usage: projects -k <keyword> or projects --keyword <keyword>\n";
+        return printOutput(output);
+      }
+  
+      const matchingProjects = searchProjectsByKeyword(keyword);
+      
+      if (matchingProjects.length === 0) {
+        output += `No projects found with keyword: ${keyword}\n`;
+      } 
+      else if (matchingProjects.length === 1) {
+        const project = matchingProjects[0];
+        output += `Project with keyword "${keyword}":\n\n`;
+        output += `${project.id}. ${project.title}\n`;
+        output += `${project.description}\n`;
+        output += `Keywords: ${formatKeywords(project.keywords)}\n`;
+      }
+      else {
+        output += `Projects with keyword "${keyword}":\n\n`;
+        matchingProjects.forEach(project => {
+          output += `${project.id}. ${project.title}\n`;
+        });
+        output += "\nUse 'projects -a <number>' to see more details about a specific project.\n";
+      }
+    }
+    else if (args.includes('-a') || args.includes('--about')) {
       const projectNumber = args.find(arg => !arg.startsWith('-'));
-      if (projectNumber === '1') {
-        output += "This is my personal portfolio page.\nIt's made as a terminal simulation.\nI wanted to make something where the person doesn't just come and read, but has to interact with the page.\nJust a static page with HTML, CSS, and JS.\n";
-      } else if (projectNumber === '2') {
-        output += 'UniPal is my unfinished project written by me and two of my classmates.\n';
-        output += 'It was started in the spring of 2024 as a year-end project and then paused for the summer.\n';
-        output += 'It is a web application that is inspired by epal.gg.\n';
-        output += 'It is made using Vite, React Bootstrap, and Sequelize, written in TypeScript, and the database is in MySQL.\n';
-        output += 'It can be found at <a href="https://unipal.jurmoharak.ee" target="_blank">unipal.jurmoharak.ee</a>.\n';
-      } else if (projectNumber === '3') {
-        output += 'HabitTracker is my personal project that I made to track my own habits and tasks.\n'
-        output += 'I made it at the end of november of 2024 and I am using it daily myself.\n'
-        output += 'It was made using <a href="https://expo.dev" target="_blank">Expo</a> framework, date is stored localy in the phone using async-storage and it\'s written in TypeScript.\n'
-        output += 'The reason why I made it was because I wanted free habit tracker that has all the functionalities that I wanted to use.\n'
-        output += '<a href="https://github.com/Pizzaold/HabitTracker" target="_blank">https://github.com/Pizzaold/HabitTracker</a>\n' 
+      const project = projectsDatabase[projectNumber];
+      
+      if (project) {
+        output += project.description + '\n';
+        output += "Keywords: " + formatKeywords(project.keywords) + "\n";
       } else {
         output += "Please specify a valid project number.\n";
       }
-    } else {
-      output += "Usage: projects [-l | --list] [-a <project_number> | --about <project_number>]\n";
+    } 
+    else {
+      output += "Usage: projects [-l | --list] [-a <project_number> | --about <project_number>] [-k <keyword> | --keyword <keyword>]\n";
     }
+    
     printOutput(output);
   }
 
@@ -200,17 +277,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let output = '';
     if (args.includes('-a') || args.includes('--about')) {
       output += "I am Jürmo Harak, a 19-year-young software development student from Tartu, Estonia. I'm currently in my third year of a four-year course at Tartu Vocational College.\n";
-    } else if (args.includes('-ad') || args.includes('--aboutdetalied')) {
-      output += 'I am Jürmo Harak, a 19-year-young software development student from Tartu, Estonia. I\'m currently in my third year of a four-year course at Tartu Vocational College.\n\nMy interest in software development started back in middle school when I tried teaching myself programming. I\'ve always been into technology, even since primary school. This passion led me to choose software development as my field of study.\n\nIn my free time, I am into video games, Dungeons & Dragons, and making my own games. I also enjoy camping, either with friends or solo. For about a year now, I have been trying to learn Japanese, though with little success so far.\n\nPersonality-wise, I\'m more of a quiet person who speaks up when I have something meaningful to say. Despite being reserved, I\'m positive and hardworking. I\'m also pretty independent - I\'ve been living on my own since I was 16.\n\nThrough my studies, I\'ve gotten comfortable with tools/libraries/frameworks like React, Sequelize, and Express. I work with languages such as TypeScript, JavaScript, and HTML, as well as database languages like MariaDB and MongoDB (Mongush). I\'ve also learned Python, Java, and Angular, though I\'m still working on learning these.\n\nMy biggest achievement so far is winning the "Küberkool 2024" in the "Telia Cyber Battle of Nordic-Baltic 2024". It was a cybersecurity competition where I had to solve various challenges related to network security and ethical hacking.\n';
-    } else if (args.includes('-i') || args.includes('--intrestes')) {
-      output += 'In my free time, I am into video games, Dungeons & Dragons, and making my own games. I also enjoy camping, either with friends or solo. For about a year now, I have been trying to learn Japanese, though with little success so far.\n';
+    } else if (args.includes('-ad') || args.includes('--aboutdetailed')) {
+      output += 'I am Jürmo Harak, a 19-year-young software development student from Tartu, Estonia. I\'m currently in my third year of a four-year course at Tartu Vocational College.\n\nMy interest in software development started back in middle school when I tried teaching myself programming. I\'ve always been into technology, even since primary school. This passion led me to choose software development as my field of study.\n\nIn my free time, I am into video games, Dungeons & Dragons, and making my own games. I also enjoy camping, either with friends or solo. For about a year now, I have been trying to learn Japanese, though with little success so far.\n\nPersonality-wise, I\'m more of a quiet person who speaks up when I have something meaningful to say. Despite being reserved, I\'m positive and hardworking. I\'m also pretty independent - I\'ve been living on my own since I was 16.\n\nThrough my studies, I\'ve gotten comfortable with tools/libraries/frameworks like React, Sequelize, and Express. I work with languages such as TypeScript, JavaScript, and HTML, as well as database languages like MariaDB and MongoDB (Mongoose). I\'ve also learned Python, Java, and Angular, though I\'m still working on learning these.\n\nMy biggest achievement so far is winning the "Küberkool 2024" in the "Telia Cyber Battle of Nordic-Baltic 2024". It was a cybersecurity competition where I had to solve various challenges related to network security and ethical hacking.\n';
+    } else if (args.includes('-i') || args.includes('--interests')) {
+      output += 'In my free time, I am into video games, Dungeons & Dragons, and making my own games. I also enjoy camping, either with friends or solo. For about a year now, I have also been trying to learn Japanese, though with little success so far.\n';
     } else if (args.includes('-c') || args.includes('--contacts')) {
       output += 'Email: jurmo.harak@gmail.com\n';
       output += 'GitHub: <a href="https://github.com/pizzaold" target="_blank">github.com/pizzaold</a>\n';
     } else if (args.includes('-g') || args.includes('--group')) {
       output += 'I am part of the <a href="https://unnamed.group/" target="_blank">unnamed.group</a>.\n';
     } else {
-      output += "Usage: me [-a | --about] [-ac | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --intrestes]\n";
+      output += "Usage: me [-a | --about] [-ac | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --interests]\n";
     }
     printOutput(output);
   }
@@ -221,6 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleWorkCommand(args) {
     let output = '';
-    output += ''
+    output += 'Edukoht OÜ  11.2022-02.2024 | Mentor\n'
+    output += 'AS Tallink Grupp - Burger King 06.2022-08.2022 | Customer Service\n'
+    printOutput(output)
   }
 });

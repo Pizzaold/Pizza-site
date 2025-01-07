@@ -104,3 +104,14 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #00cc00;
 }
+
+.keyword {
+  display: inline-block;
+  background-color: rgba(0, 255, 0, 0.2);
+  color: #00ff99;
+  padding: 2px 6px;
+  margin: 2px;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  font-weight: bold;
+}
