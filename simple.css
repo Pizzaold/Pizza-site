@@ -223,6 +223,7 @@ a {
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }
 
@@ -425,11 +426,4 @@ a {
 
 .projects-container * {
   box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
 }
