@@ -35,7 +35,6 @@ document.querySelectorAll('.project').forEach(project => {
     const projectInfo = projectData[title];
     
     modalTitle.textContent = title;
-    modalImage.alt = `Detailed view of ${title}`;
     
     const paragraphs = projectInfo.description.split('\n').filter(text => text.trim() !== '');
     const descriptionHtml = paragraphs

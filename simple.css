@@ -319,3 +319,85 @@ a {
   flex-wrap: wrap;
   gap: 4px;
 }
+
+.other-container {
+  background-color: #535353;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  width: min(90%, 1200px);
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.skills {
+  background-color: #353535;
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.other {
+  background-color: #353535;
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.other-container {
+  background-color: #535353;
+  padding: 2rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  width: min(90%, 1200px);
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .other-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.skills, .other {
+  background-color: #353535;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skill-item, .other-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-item h3, .other-item h3 {
+  color: #00ff99;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.skill-item p, .other-item p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.back {
+  margin-bottom: 1.5rem;
+  color: #00ff00;
+}

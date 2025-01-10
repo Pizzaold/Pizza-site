@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainCommands = {
     me: { description: 'Learn about me', usage: 'me [-a | --about] [-ad | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --interests]' },
     work: { description: 'Learn about my work experience', usage: 'No arguments for this command'},
+    education: { description: 'Learn about my education', usage: 'No arguments for this command'},
     projects: { 
       description: 'Learn about my projects', 
       usage: 'projects [-l | --list] [-a <project_number> | --about <project_number>] [-k <keyword> | --keyword <keyword>]' 
@@ -147,6 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'work':
         handleWorkCommand(args)
+        break
+      case 'education':
+        handleEduCommand(args)
         break
       default:
         printOutput(`'${cmd}' is not recognized as a valid command.\n`);
@@ -302,4 +306,14 @@ document.addEventListener('DOMContentLoaded', () => {
     output += 'AS Tallink Grupp - Burger King 06.2022-08.2022 | Customer Service\n'
     printOutput(output)
   }
+
+  function handleEduCommand(args) {
+    let output = '';
+    output += 'Tartu Rakenduslik Kolledž 2022-Present | Software Developer - 3th year\n'
+    output += 'Tartu Herbert Masingu Kool 2021-2022 | Secondary Education\n'
+    output += 'Tartu Herbert Masingu Kool 2018-2021 | Elementary Education Acquired\n'
+    output += 'Valga Põhikool 2012-2018 | Elementary Education'
+    printOutput(output)
+  }
 });
+
