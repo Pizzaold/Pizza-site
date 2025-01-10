@@ -401,3 +401,35 @@ a {
   margin-bottom: 1.5rem;
   color: #00ff00;
 }
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 1rem;
+    margin: 0.5rem;
+    width: calc(100% - 1rem);
+  }
+  
+  .project {
+    aspect-ratio: auto;
+    min-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .project img {
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.projects-container * {
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
