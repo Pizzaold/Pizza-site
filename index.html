@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="author" href="https://github.com/pizzaold">
     <link rel="icon" href="./favicon.svg" type="image/x-icon">
+    <script>
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.innerWidth <= 768;
+        }
+        if (isMobile()) {
+            window.location.href = '/simple.html';
+        }
+    </script>
 </head>
 <body>
     <div id="terminal">

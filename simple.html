@@ -1,34 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Pizza Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Jürmo Harak's portfolio page">
     <meta name="author" content="Jürmo Harak">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./simple.css">
     <link rel="author" href="https://github.com/pizzaold">
     <link rel="icon" href="./favicon.svg" type="image/x-icon">
-    <script>
-        function isMobile() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-                || window.innerWidth <= 768;
-        }
-
-        if (isMobile()) {
-            window.location.href = '/simple.html';
-        }
-    </script>
 </head>
 <body>
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-line">
-            <span class="prompt">$</span>
-            <input type="text" id="command-input" autofocus>
-        </div>
+  <div class="header">
+    <h1>Welcome</h1>
+    <h3>to</h1>
+    <h3 class="name">Jürmo Harak's</h1>
+    <h1>Portfolio</h1>
+  </div>
+  <div class="about">
+    <div class="intro">
+      <h2>Introtuction</h2>
+      <p>I am Jürmo Harak, a 19-year-young software development student from Tartu, Estonia. I'm currently in my third year of a four-year course at Tartu Vocational College.<br><br> My interest in software development started back in middle school when I tried teaching myself programming. I've always been into technology, even since primary school. This passion led me to choose software development as my field of study.<br><br> In my free time, I am into video games, Dungeons & Dragons, and making my own games. I also enjoy camping, either with friends or solo. For about a year now, I have been trying to learn Japanese, though with little success so far.<br><br> Personality-wise, I'm more of a quiet person who speaks up when I have something meaningful to say. Despite being reserved, I'm positive and hardworking. I'm also pretty independent - I've been living on my own since I was 16.<br><br> Through my studies, I've gotten comfortable with tools/libraries/frameworks like React, Sequelize, and Express. I work with languages such as TypeScript, JavaScript, and HTML, as well as database languages like MariaDB and MongoDB (Mongoose). I've also learned Python, Java, and Angular, though I'm still working on learning these.<br><br> My biggest achievement so far is winning the "Küberkool 2024" in the "Telia Cyber Battle of Nordic-Baltic 2024". It was a cybersecurity competition where I had to solve various challenges related to network security and ethical hacking.</p>
     </div>
-    <script type="module" src="./script.js"></script>
-    <a class="simple-page" href="/simple.html">Click here for a simple page</a>
+    <div class="contact-container">
+      <div class="contact">
+        <h2>Contacts</h2>
+        <p>E-mail: jurmo.harak@gmail.com</p>
+        <p>Github: <a href="https://github.com/Pizzaold" target="_blank">github.com/Pizzaold</a></p>
+      </div>
+      <div class="image">
+        <img src="img/CV2.image.jpg" alt="Here should be an image of me.">
+      </div>
+    </div>
+  </div>
+  <div class="eduwork-container">
+    <div class="edu">
+      <h2>Education</h2>
+      <div class="sameline">
+        <span>TARTU RAKENDUSLIK KOLLEDŽ</span>
+        <span class="date">2022-Present</span>
+        <br>
+        <span>SOFTWARE DEVELOPER - 3TH YEAR</span>
+      </div>
+      <div class="sameline">
+        <span>TARTU HERBERT MASINGU KOOL</span>
+        <span class="date">2021-2022</span>
+        <br>
+        <span>SECONDARY EDUCATION</span>
+      </div>
+      <div class="sameline">
+        <span>TARTU HERBERT MASINGU KOOL</span>
+        <span class="date">2018-2021</span>
+        <br>
+        <span>ELEMENTARY EDUCATION</span>
+        <span class="acquired">ACQUIRED</span>
+      </div>
+      <div class="sameline">
+        <span>VALGA PÕHIKOOL</span>
+        <span class="date">2012-2018</span>
+        <br>
+        <span>ELEMENTARY EDUCATION</span>
+      </div>
+    </div>
+    <div class="work">
+      <h2>Work Experience</h2>
+      <div class="sameline">
+        <span>EDUKOHT OÜ</span>
+        <span class="date">11.2022-02.2024</span>
+        <br>
+        <span>MENTOR</span>
+      </div>
+      <div class="sameline">
+        <span>AS TALLINK GRUPP - BURGER KING</span>
+        <span class="date">06.2022-08.2022</span>
+        <br>
+        <span>CUSTOMER SERVICE</span>
+      </div>
+    </div>
+  </div>
+  <div class="projects-container">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Portfolio</h3>
+        <img src="img/portfolio.png" alt="Image of Terminal">
+      </div>
+      <div class="project">
+        <h3>UniPal</h3>
+        <img src="img/unipal.png" alt="Image of UniPal">
+      </div>
+      <div class="project">
+        <h3>HabitTracker</h3>
+        <img src="img/habittracker.jpg" alt="Image of habitTracker">
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImage" src="" alt="">
+      <div id="modalDescription"></div>
+    </div>
+  </div>
+  <script type="module" src="./simple.js"></script>
+  <div class="other-container">
+    <div class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>JavaScript, TypeScript, Node.JS</li>
+        <li>React, Vite</li>
+        <li>HTML, CSS</li>
+        <li>MySQL, Sequelize</li>
+        <li>GDScript</li>
+      </ul>
+    </div>
+    <div class="other">
+      <h2>Language & Other</h2>
+      <ul>
+        <li>English - C1</li>
+        <li>Estonian - First Language</li>
+        <li>Driving license - B (09.2023)</li>
+      </ul>
+    </div>
+  </div>
+  <a class="back" href="/index.html">Go back to Terminal</a>
 </body>
 </html>

@@ -6,17 +6,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #1e1e1e;
-  color: #00ff00;
+  background: #1e1e1e;
+  color: #0f0;
   font-family: 'Courier New', monospace;
   font-size: 16px;
 }
 
 #terminal {
-  width: 80%;
-  max-width: 1000px;
+  width: min(80%, 1000px);
   height: 80vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
@@ -28,16 +27,9 @@ body {
 pre {
   margin: 0;
   white-space: pre-wrap;
-  font-family: 'Courier New', monospace;
+  font-family: inherit;
   font-size: 14px;
   line-height: 1;
-}
-
-#content {
-  flex-grow: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
 }
 
 #output {
@@ -52,66 +44,56 @@ pre {
   padding-top: 5px;
 }
 
-.prompt {
-  color: #00ff00;
-  margin-right: 5px;
-}
+.prompt { color: #0f0; margin-right: 5px; }
 
 #command-input {
   background: none;
   border: none;
-  color: #00ff00;
+  color: #0f0;
   outline: none;
   flex: 1;
-  caret-color: #00ff00;
+  caret-color: #0f0;
   font-family: inherit;
   font-size: inherit;
 }
 
-#command-input::placeholder {
-  color: rgba(0, 255, 0, 0.5);
-}
+#command-input::placeholder { color: rgba(0, 255, 0, 0.5); }
 
 a {
-  color: #00ff99;
+  color: #0f9;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 a:hover {
-  color: #66ffcc;
+  color: #6fc;
   text-decoration: underline;
 }
 
-.simple-page {
-  margin-top: 20px;
-  color: #00ff00;
-}
+.simple-page { margin-top: 20px; color: #0f0; }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1e1e1e;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00ff00;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc00;
-}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #1e1e1e; }
+::-webkit-scrollbar-thumb { background: #0f0; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #0c0; }
 
 .keyword {
   display: inline-block;
-  background-color: rgba(0, 255, 0, 0.2);
-  color: #00ff99;
+  background: rgba(0, 255, 0, 0.2);
+  color: #0f9;
   padding: 2px 6px;
   margin: 2px;
-  border: 1px solid #00ff00;
+  border: 1px solid #0f0;
   border-radius: 4px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #terminal {
+    width: 90%;
+    height: 90vh;
+    padding: 10px;
+  }
+  
+  body { font-size: 14px; }
 }
