@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Learn about my projects', 
       usage: 'projects [-l | --list] [-a <project_number> | --about <project_number>] [-k <keyword> | --keyword <keyword>]' 
     },
+    snake: { description: 'Play Snake game', usage: 'snake' },
     help: { description: 'Show available commands', usage: 'help [command]' },
-    clear: { description: 'Clear the terminal', usage: 'clear' }
+    clear: { description: 'Clear the terminal', usage: 'clear' },
   };
 
   const asciiArt = `<pre>   
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  input.addEventListener('keydown', function (event) {
+  const defaultInputHandler = function(event) {
     if (event.key === 'Enter') {
       const command = input.value.trim();
       if (command.length > 0) {
@@ -117,7 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (event.key === 'l' && event.ctrlKey) {
       output.innerHTML = '';
     }
-  });
+  };
+
+  input.addEventListener('keydown', defaultInputHandler);
 
   function autocomplete(partialCommand) {
     const matches = Object.keys(mainCommands).filter(cmd => cmd.startsWith(partialCommand));
@@ -152,6 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'education':
         handleEduCommand(args)
         break
+      case 'snake':
+        createSnakeGame();
+        break;
       default:
         printOutput(`'${cmd}' is not recognized as a valid command.\n`);
         break;
@@ -180,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: "This is my personal portfolio page.\n" +
                   "It's made as a terminal simulation.\n" +
                   "I wanted to make something where the person doesn't just come and read, but has to interact with the page.\n" +
-                  "There is also a basic version if people really just wanna come and read about me.",
+                  "There is also a basic version if people really just want to come and read about me.",
       keywords: ["HTML", "CSS", "JavaScript", "SOLO"]
     },
     2: {
@@ -195,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     3: {
       title: "HabitTracker",
       description: "HabitTracker is my personal project that I made to track my own habits and tasks.\n" +
-                  "I made it at the end of november of 2024 and I am using it daily myself.\n" +
-                  "It was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, date is stored locally in the phone using async-storage and it's written in TypeScript.\n" +
+                  "I made it at the end of November of 2024 and I am using it daily myself.\n" +
+                  "It was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, data is stored locally in the phone using async-storage and it's written in TypeScript.\n" +
                   "The reason why I made it was because I wanted free habit tracker that has all the functionalities that I wanted to use.\n" +
                   "<a href=\"https://github.com/Pizzaold/HabitTracker\" target=\"_blank\">https://github.com/Pizzaold/HabitTracker</a>",
       keywords: ["Expo", "React", "Phone App", "TypeScript", "Open Source", "Async-storage"]
@@ -291,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (args.includes('-g') || args.includes('--group')) {
       output += 'I am part of the <a href="https://unnamed.group/" target="_blank">unnamed.group</a>.\n';
     } else {
-      output += "Usage: me [-a | --about] [-ac | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --interests]\n";
+      output += "Usage: me [-a | --about] [-ad | --aboutdetailed] [-c | --contacts] [-g | --group] [-i | --interests]\n";
     }
     printOutput(output);
   }
@@ -309,11 +315,138 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleEduCommand(args) {
     let output = '';
-    output += 'Tartu Rakenduslik Kolledž 2022-Present | Software Developer - 3th year\n'
+    output += 'Tartu Rakenduslik Kolledž 2022-Present | Software Developer - 3rd year\n'
     output += 'Tartu Herbert Masingu Kool 2021-2022 | Secondary Education\n'
     output += 'Tartu Herbert Masingu Kool 2018-2021 | Elementary Education Acquired\n'
     output += 'Valga Põhikool 2012-2018 | Elementary Education'
     printOutput(output)
   }
-});
 
+  function createSnakeGame() {
+    const width = 20;
+    const height = 15;
+    let snake = [{x: 10, y: 7}];
+    let foods = [
+      {x: 15, y: 7},
+      {x: 5, y: 7},
+      {x: 10, y: 12}
+    ];
+    let direction = 'right';
+    let gameLoop = null;
+    let score = 0;
+    let gameBoard = '';
+    
+    const originalContent = output.innerHTML;
+    
+    function generateNewFood() {
+      let newFood;
+      do {
+        newFood = {
+          x: Math.floor(Math.random() * width),
+          y: Math.floor(Math.random() * height)
+        };
+      } while (
+        snake.some(segment => segment.x === newFood.x && segment.y === newFood.y) ||
+        foods.some(food => food.x === newFood.x && food.y === newFood.y)
+      );
+      return newFood;
+    }
+    
+    function drawGame() {
+      output.innerHTML = originalContent + '\n\n';
+      
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          if (foods.some(food => food.x === x && food.y === y)) {
+            gameBoard += '🍎';
+          } else if (snake.some(segment => segment.x === x && segment.y === y)) {
+            gameBoard += '██';
+          } else {
+            gameBoard += '··';
+          }
+        }
+        gameBoard += '\n';
+      }
+      gameBoard += `\nScore: ${score} | Use arrow keys to play | Press Q to quit\n`;
+      output.innerHTML += gameBoard;
+      gameBoard = '';
+      
+      scrollToBottom();
+    }
+
+    function updateGame() {
+      const head = {...snake[0]};
+      
+      switch(direction) {
+        case 'up': head.y--; break;
+        case 'down': head.y++; break;
+        case 'left': head.x--; break;
+        case 'right': head.x++; break;
+      }
+
+      if (head.x < 0 || head.x >= width || head.y < 0 || head.y >= height) {
+        endGame();
+        return;
+      }
+
+      if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+        endGame();
+        return;
+      }
+
+      snake.unshift(head);
+
+      const eatenFoodIndex = foods.findIndex(food => food.x === head.x && food.y === head.y);
+      if (eatenFoodIndex !== -1) {
+        score += 10;
+        foods[eatenFoodIndex] = generateNewFood();
+      } else {
+        snake.pop();
+      }
+
+      drawGame();
+    }
+
+    function handleSnakeInput(event) {
+      event.preventDefault();
+      switch(event.key) {
+        case 'ArrowUp':
+          if (direction !== 'down') direction = 'up';
+          break;
+        case 'ArrowDown':
+          if (direction !== 'up') direction = 'down';
+          break;
+        case 'ArrowLeft':
+          if (direction !== 'right') direction = 'left';
+          break;
+        case 'ArrowRight':
+          if (direction !== 'left') direction = 'right';
+          break;
+        case 'q':
+        case 'Q':
+          endGame();
+          break;
+      }
+    }
+
+    input.removeEventListener('keydown', defaultInputHandler);
+    document.addEventListener('keydown', handleSnakeInput);
+    input.disabled = true;
+    input.value = '';
+
+    function endGame() {
+      clearInterval(gameLoop);
+      output.innerHTML = originalContent + '\n\n';
+      output.innerHTML += `Game Over! Final Score: ${score}\n`;
+      document.removeEventListener('keydown', handleSnakeInput);
+      input.addEventListener('keydown', defaultInputHandler);
+      input.disabled = false;
+      input.focus();
+      
+      scrollToBottom();
+    }
+
+    drawGame();
+    gameLoop = setInterval(updateGame, 150);
+  }
+});
