@@ -8,18 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
       usage: 'projects [-l | --list] [-a <project_number> | --about <project_number>] [-k <keyword> | --keyword <keyword>]' 
     },
     snake: { description: 'Play Snake game', usage: 'snake' },
+    theme: { 
+      description: 'Change terminal color theme', 
+      usage: 'theme [-g | --green] [-o | --orange]' 
+    },
     help: { description: 'Show available commands', usage: 'help [command]' },
     clear: { description: 'Clear the terminal', usage: 'clear' },
   };
 
   const asciiArt = `<pre>   
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░        ░▒▓██████▓▒░  ░▒▓██████▓▒░ ░▒▓████████████▓▒░ ░▒▓████████▓▒░░▒▓█▓▒░ 
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░  ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░  ░▒▓█▓▒░ 
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░ 
-░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░       ░▒▓█▓▒░       ░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░               
- ░▒▓███████████▓▒░ ░▒▓████████▓▒░░▒▓████████▓▒░ ░▒▓██████▓▒░  ░▒▓██████▓▒░ ░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░ 
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░░░░░░░░░░▒▓██████▓▒░░░░▒▓██████▓▒░░░▒▓████████████▓▒░░░▒▓████████▓▒░░▒▓█▓▒░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░░░░▒▓█▓▒░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░
+░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░░░░░░░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░░░░░░░░░░░░░░
+░░▒▓███████████▓▒░░░▒▓████████▓▒░░▒▓████████▓▒░░░▒▓██████▓▒░░░░▒▓██████▓▒░░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓████████▓▒░░▒▓█▓▒░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
                                                                                                                                
                                                                                                                                
  </pre>`;
@@ -157,6 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
         break
       case 'snake':
         createSnakeGame();
+        break;
+      case 'theme':
+        handleThemeCommand(args);
         break;
       default:
         printOutput(`'${cmd}' is not recognized as a valid command.\n`);
@@ -448,5 +457,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     drawGame();
     gameLoop = setInterval(updateGame, 150);
+  }
+
+  function handleThemeCommand(args) {
+    let output = '';
+    
+    if (args.includes('-g') || args.includes('--green')) {
+      document.documentElement.setAttribute('data-theme', 'green');
+      output += 'Terminal theme changed to green.\n';
+    } else if (args.includes('-o') || args.includes('--orange')) {
+      document.documentElement.setAttribute('data-theme', 'orange');
+      output += 'Terminal theme changed to orange.\n';
+    } else {
+      output += 'Usage: theme [-g | --green] [-o | --orange]\n';
+    }
+    
+    printOutput(output);
   }
 });
