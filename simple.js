@@ -3,7 +3,7 @@ const projectData = {
     description: "This is my personal portfolio page.\n" +
                   "It's made as a terminal simulation.\n" +
                   "I wanted to make something where the person doesn't just come and read, but has to interact with the page.\n" +
-                  "There is also a basic version if people really just wanna come and read about me.",
+                  "There is also a basic version if people really just want to come and read about me.",
     keywords: ["HTML", "CSS", "JavaScript", "SOLO"]
   },
   'UniPal': {
@@ -16,8 +16,8 @@ const projectData = {
   },
   'HabitTracker': {
     description: "HabitTracker is my personal project that I made to track my own habits and tasks.\n" +
-                  "I made it at the end of november of 2024 and I am using it daily myself.\n" +
-                  "It was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, date is stored locally in the phone using async-storage and it's written in TypeScript.\n" +
+                  "I made it at the end of November of 2024 and I am using it daily myself.\n" +
+                  "It was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, data is stored locally in the phone using async-storage and it's written in TypeScript.\n" +
                   "The reason why I made it was because I wanted free habit tracker that has all the functionalities that I wanted to use.\n" +
                   "<a href=\"https://github.com/Pizzaold/HabitTracker\" target=\"_blank\">https://github.com/Pizzaold/HabitTracker</a>",
     keywords: ["Expo", "React", "Phone App", "TypeScript", "Open Source", "Async-storage"]
