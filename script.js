@@ -252,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.entries(projectsDatabase).forEach(([id, project]) => {
         output += `${id}. ${project.title}\n`;
       });
+      output += "\nUse 'projects -a <number>' to see more details about a specific project.\n";
     } 
     else if (args.includes('-k') || args.includes('--keyword')) {
       const keywordIndex = args.findIndex(arg => arg === '-k' || arg === '--keyword');
