@@ -293,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         output += "Keywords: " + formatKeywords(project.keywords) + "\n";
       } else {
         output += "Please specify a valid project number.\n";
+        output += "Usage: projects -a (number)\n";
       }
     } 
     else {
