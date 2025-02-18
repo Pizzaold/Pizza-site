@@ -1,0 +1,26 @@
+{
+  "1": {
+    "title": "Personal Portfolio",
+    "description": "This is my personal portfolio page.\nIt's made as a terminal simulation.\nI wanted to make something where the person doesn't just come and read, but has to interact with the page.\nThere is also a basic version if people really just want to come and read about me.\n<a href=\"https://github.com/Pizzaold/Pizza-site\" target=\"_blank\">https://github.com/Pizzaold/Pizza-site</a>",
+    "keywords": ["HTML", "CSS", "JavaScript", "SOLO"],
+    "image": "img/portfolio.png"
+  },
+  "2": {
+    "title": "UniPal",
+    "description": "UniPal is my unfinished project written by me and two of my classmates.\nIt was started in the spring of 2024 as a year-end project and then paused for the summer.\nIt is a web application that is inspired by epal.gg.\nIt is made using Vite, React Bootstrap, and Sequelize, written in TypeScript, and the database is in MySQL.\nIt can be found at <a href=\"https://unipal.jurmoharak.ee\" target=\"_blank\">unipal.jurmoharak.ee</a>.",
+    "keywords": ["Vite", "React", "Bootstrap", "MVP", "Express", "TypeScript", "Sequelize", "MariaDB"],
+    "image": "img/unipal.png"
+  },
+  "3": {
+    "title": "HabitTracker",
+    "description": "HabitTracker is my personal project that I made to track my own habits and tasks.\nI made it at the end of November of 2024 and I am using it daily myself.\nIt was made using <a href=\"https://expo.dev\" target=\"_blank\">Expo</a> framework, data is stored locally in the phone using async-storage and it's written in TypeScript.\nThe reason why I made it was because I wanted free habit tracker that has all the functionalities that I wanted to use.\n<a href=\"https://github.com/Pizzaold/HabitTracker\" target=\"_blank\">https://github.com/Pizzaold/HabitTracker</a>",
+    "keywords": ["Expo", "React", "Phone App", "TypeScript", "Open Source", "Async-storage"],
+    "image": "img/habittracker.jpg"
+  },
+  "4": {
+    "title": "Tracker",
+    "description": "This project was made for another school assignment by me and 3 other classmates.\nIt is a web application where you can add habits, bucket list items, goals, and rewards.\nThere is also a timeline of how many weeks you have lived and how many you have left untile 80.\nIt can be found at <a href=\"https://tracker.jurmoharak.ee\" target=\"_blank\">tracker.jurmoharak.ee</a>.\n<a href=\"https://github.com/Pizzaold/Tracker\" target=\"_blank\">https://github.com/Pizzaold/Tracker</a>",
+    "keywords": ["Vite", "React", "TypeScript", "Express", "Sequelize", "MariaDB"],
+    "image": "img/tracker.png"
+  }
+}

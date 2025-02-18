@@ -1,3 +1,3 @@
 # Pizza-site
-This is my website, not fully ready yet :) <br>
-Authot: Me - Pizzaold
+This is my portfolio website :) <br>
+Author: Me - Pizzaold
