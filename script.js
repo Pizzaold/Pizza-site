@@ -296,7 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
       output += 'Camping: I enjoy camping, either with friends or solo.\n\n';
       output += 'Japanese: I have been trying to learn Japanese since 2022 with limited success as I have not been able to find a good way to learn it.\n\n';
     } else if (args.includes('-c') || args.includes('--contacts')) {
-      output += 'Email: jurmo.harak@gmail.com\n';
+      output += 'Email: jurmo.harak@voco.ee\n';
+      output += '       jurmoharak@gmail.com\n';
       output += 'GitHub: <a href="https://github.com/pizzaold" target="_blank">github.com/pizzaold</a>\n';
       output += 'Discord: Pizzaold\n';
     } else if (args.includes('-g') || args.includes('--group')) {
